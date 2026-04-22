@@ -1,0 +1,12 @@
+{
+  "domain": "folloren",
+  "name": "FolloRen",
+  "codeowners": ["@MrFjellstad"],
+  "config_flow": true,
+  "documentation": "https://github.com/MrFjellstad/folloren",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/MrFjellstad/folloren/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

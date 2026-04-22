@@ -1,0 +1,63 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "FolloRen",
+        "description": "Konfigurer oppslag mot renovasjonskalenderen. Fraksjonsnavn kan angis som JSON, for eksempel: 1=Restavfall, 2=Papir.",
+        "data": {
+          "name": "Navn",
+          "api_proxy_url": "Proxy-URL",
+          "api_server_url": "API-server-URL",
+          "kommunenr": "Kommunenummer i query",
+          "gatenavn": "Gatenavn",
+          "gatekode": "Gatekode",
+          "husnr": "Husnummer",
+          "header_kommunenr": "Kommunenummer i header",
+          "header_app_key": "RenovasjonAppKey",
+          "fraksjon_names": "Fraksjonsnavn (JSON)",
+          "enable_calendar": "Aktiver kalenderoppdatering",
+          "user_agent": "User-Agent",
+          "scan_interval": "Oppdateringsintervall (timer)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kunne ikke hente data fra API-et.",
+      "invalid_api_response": "API-et returnerte uventet dataformat.",
+      "invalid_fraction_names": "Fraksjonsnavn må være gyldig JSON, for eksempel: 1=Restavfall."
+    },
+    "abort": {
+      "already_configured": "Denne adressen er allerede konfigurert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "FolloRen",
+        "description": "Oppdater integrasjonsinnstillinger. Fraksjonsnavn kan angis som JSON, for eksempel: 1=Restavfall, 2=Papir.",
+        "data": {
+          "name": "Navn",
+          "api_proxy_url": "Proxy-URL",
+          "api_server_url": "API-server-URL",
+          "kommunenr": "Kommunenummer i query",
+          "gatenavn": "Gatenavn",
+          "gatekode": "Gatekode",
+          "husnr": "Husnummer",
+          "header_kommunenr": "Kommunenummer i header",
+          "header_app_key": "RenovasjonAppKey",
+          "fraksjon_names": "Fraksjonsnavn (JSON)",
+          "enable_calendar": "Aktiver kalenderoppdatering",
+          "user_agent": "User-Agent",
+          "scan_interval": "Oppdateringsintervall (timer)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pickup_date": {
+        "name": "Tømmedato"
+      }
+    }
+  }
+}

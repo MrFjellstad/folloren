@@ -1,0 +1,63 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "FolloRen",
+        "description": "Configure the waste calendar lookup. Fraction names can be provided as JSON, for example: 1=General waste, 2=Paper.",
+        "data": {
+          "name": "Name",
+          "api_proxy_url": "Proxy URL",
+          "api_server_url": "API server URL",
+          "kommunenr": "Municipality number in query",
+          "gatenavn": "Street name",
+          "gatekode": "Street code",
+          "husnr": "House number",
+          "header_kommunenr": "Municipality number in header",
+          "header_app_key": "RenovasjonAppKey",
+          "fraksjon_names": "Fraction names (JSON)",
+          "enable_calendar": "Enable calendar updates",
+          "user_agent": "User-Agent",
+          "scan_interval": "Update interval (hours)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not fetch data from the API.",
+      "invalid_api_response": "The API returned an unexpected data format.",
+      "invalid_fraction_names": "Fraction names must be valid JSON, for example: 1=General waste."
+    },
+    "abort": {
+      "already_configured": "This address is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "FolloRen",
+        "description": "Update integration settings. Fraction names can be provided as JSON, for example: 1=General waste, 2=Paper.",
+        "data": {
+          "name": "Name",
+          "api_proxy_url": "Proxy URL",
+          "api_server_url": "API server URL",
+          "kommunenr": "Municipality number in query",
+          "gatenavn": "Street name",
+          "gatekode": "Street code",
+          "husnr": "House number",
+          "header_kommunenr": "Municipality number in header",
+          "header_app_key": "RenovasjonAppKey",
+          "fraksjon_names": "Fraction names (JSON)",
+          "enable_calendar": "Enable calendar updates",
+          "user_agent": "User-Agent",
+          "scan_interval": "Update interval (hours)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pickup_date": {
+        "name": "Pickup date"
+      }
+    }
+  }
+}
