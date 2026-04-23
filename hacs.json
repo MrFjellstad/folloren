@@ -1,5 +1,8 @@
 {
   "name": "FolloRen",
-  "hacs": "1.6.0",
-  "homeassistant": "2024.1.0"
+  "country": "NO",
+  "domains": ["sensor", "calendar"],
+  "homeassistant": ">=2024.1.0",
+  "render_readme": true,
+  "repository": "https://github.com/MrFjellstad/folloren"
 }
