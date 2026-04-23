@@ -23,6 +23,7 @@ from .const import (
     CONF_NAME,
     CONF_SCAN_INTERVAL,
     CONF_USER_AGENT,
+    CONF_KNOWN_FRAKSJON_IDS,
     DEFAULT_SCAN_INTERVAL,
     DEFAULT_USER_AGENT,
     DOMAIN,
@@ -105,6 +106,36 @@ class FolloRenovasjonDataUpdateCoordinator(DataUpdateCoordinator[list[dict[str, 
 
     async def _async_update_data(self) -> list[dict[str, Any]]:
         try:
-            return await async_fetch_calendar(self.hass, _merged_config(self.entry))
+            payload = await async_fetch_calendar(self.hass, _merged_config(self.entry))
+            await self._check_for_new_fraksjon_ids(payload)
+            return payload
         except (CannotConnect, InvalidApiResponse) as err:
             raise UpdateFailed(str(err)) from err
+
+    async def _check_for_new_fraksjon_ids(self, payload: list[dict[str, Any]]) -> None:
+        """Check if new fraksjon IDs have appeared in the API response."""
+        current_fraksjon_ids = {item["FraksjonId"] for item in payload}
+        known_fraksjon_ids = set(
+            self.entry.data.get(CONF_KNOWN_FRAKSJON_IDS, []))
+
+        new_fraksjon_ids = current_fraksjon_ids - known_fraksjon_ids
+
+        if new_fraksjon_ids:
+            LOGGER.warning(
+                "New fraksjon IDs detected: %s",
+                sorted(new_fraksjon_ids),
+            )
+
+            # Update entry data with new fraksjon IDs
+            new_data = {**self.entry.data,
+                        CONF_KNOWN_FRAKSJON_IDS: sorted(current_fraksjon_ids)}
+            self.hass.config_entries.async_update_entry(
+                self.entry, data=new_data)
+
+            # Send persistent notification
+            await self.hass.components.persistent_notification.async_create(
+                f"Nye fraksjontyper oppdaget: {', '.join(str(fid) for fid in sorted(new_fraksjon_ids))}. "
+                "Sjekk at fraksjonsnavn-mappingen er oppdatert i integrasjonens innstillinger.",
+                title="FolloRen - Nye fraksjontyper",
+                notification_id=f"{DOMAIN}_new_fraksjon_ids",
+            )

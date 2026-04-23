@@ -15,6 +15,7 @@ CONF_KOMMUNENR = "kommunenr"
 CONF_NAME = "name"
 CONF_SCAN_INTERVAL = "scan_interval"
 CONF_USER_AGENT = "user_agent"
+CONF_KNOWN_FRAKSJON_IDS = "known_fraksjon_ids"
 
 DEFAULT_NAME = "FolloRen"
 DEFAULT_API_PROXY_URL = "https://norkartrenovasjon.azurewebsites.net/proxyserver.ashx"
