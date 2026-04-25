@@ -2,7 +2,7 @@
   "name": "FolloRen",
   "country": "NO",
   "domains": ["sensor", "calendar"],
-  "homeassistant": ">=2024.1.0",
+  "homeassistant": "2024.1.0",
   "render_readme": true,
   "repository": "https://github.com/MrFjellstad/folloren"
 }
