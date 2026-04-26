@@ -3,7 +3,6 @@
   "config_flow": true,
   "documentation": "https://github.com/MrFjellstad/folloren",
   "domain": "folloren",
-  "homeassistant": ">=2024.1.0",
   "integration_type": "service",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/MrFjellstad/folloren/issues",
